@@ -15,32 +15,16 @@ module.exports={
         })
         .then(async (json) => {
             console.log(json)
-
             if (json.error != undefined){
                 msg.channel.send(`Your auth key response is: ${json.error}`)
                 return;
             }
-
-            var result = [];
-            var username = "";
-            for(var i in json)
-            {
-                result.push([i, json [i]]);
-                if (i == "username"){
-                    username = json [i];
-                }
-            }
-
-            //msg.channel.send(`1: ${JSON.parse(json)}`)
-            const myJson = JSON.stringify(result);
-            //msg.channel.send(`RESULT: \`\`\`json\n${myJson}\`\`\``)
-            console.log(myJson);
             
-            //dmsg.channel.send(`username: ${username}`)
-            console.log(username);
+            var username = json.username
             
             switch(json.group) {
                 //contributor
+                case "":
                 case (" "): {
                     msg.channel.send("Your auth key returned: contributor")
                     const lol = await msg.channel.send("Assinging role...")
@@ -105,21 +89,8 @@ module.exports={
                     msg.guild.channels.cache.get("734044818061131886").send(`nick ${args[1]} ${username}`)                   
                     lol.edit("Complete!")              
                 } break;
-                case "3":
-                case "4":
-                case "6":
-                case "92":
-                case "94":
-                case "96":
-                case "97":
-                case "99":
-                case "100":
-                case "101":
-                case "97": {
-                    msg.channel.send('This is the "BabiKoqi    they probably contain like staff usergroups, custom ones etc case"')
-                } break;
                 default: {
-                    msg.channel.send(`Your auth key is not supported:${result.group}`)
+                    msg.channel.send(`Your auth key is not supported:${result.group} @Staff`)
                 } break;
             }
             msg.delete();
