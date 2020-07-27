@@ -43,9 +43,9 @@ bot.on('message', async msg => {
     }
 });
 
-bot.on("guildMemberAdd", member =>{
+/*bot.on("guildMemberAdd", member =>{
     const lol = member.guild.roles.cache.find(r => r.id === "733739009582432289").catch(msg.channel.send());
     member.roles.add(lol) 
-})
+})*/
 
 bot.login(token);
