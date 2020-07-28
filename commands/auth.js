@@ -58,25 +58,24 @@ module.exports={
                 // godlike
                 case ("11"): {
                     // actual godlike
-                    let lol = null;
                     if (cleanInt(json.likes) > 1999){
                         msg.channel.send("Your auth key returned: Godlike")
-                        lol = await msg.channel.send("Assinging role...")
+                        const lol = await msg.channel.send("Assinging role...")
                         msg.guild.channels.cache.get("734044818061131886").send(`lp user ${args[1]} group add godlike`)
+                            
+                        if(username !== msg.member.displayName) {
+                            var user = msg.guild.members.fetch(msg.member.id).then((member) => {
+                                member.setNickname(username);
+                            });
+                            }
+                        msg.guild.channels.cache.get("734044818061131886").send(`nick ${args[1]} ${username}`)
+                        lol.edit("Complete!")   
                     }
-                    // or just premium?
+                    // just premium
                     else{
                         msg.channel.send("Your auth key returned: Premium?")
-                        lol = await msg.channel.send("Assinging role...")
-                        msg.guild.channels.cache.get("734044818061131886").send(`lp user ${args[1]} group add premium`)
-                    }
-                    if(username !== msg.member.displayName) {
-                        var user = msg.guild.members.fetch(msg.member.id).then((member) => {
-                            member.setNickname(username);
-                        });
-                    }
-                    msg.guild.channels.cache.get("734044818061131886").send(`nick ${args[1]} ${username}`)
-                    lol.edit("Complete!")              
+                        let msg = await msg.channel.send("Sorry, no roles for premium :(")
+                    }           
                 } break;
                 // supreme
                 case ("12"): {
