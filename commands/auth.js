@@ -73,7 +73,7 @@ module.exports={
                     }
                     // just premium
                     else{
-                        let noPremiumMsg = await msg.channel.send("Sorry, no roles for premium :(")
+                        let noPremiumMsg = await msg.channel.send("Premium rank expires in a month, and we have no way of checking the expiry time")
                     }           
                 } break;
                 // supreme
