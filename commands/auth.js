@@ -94,6 +94,6 @@ module.exports={
                 } break;
             }
             msg.delete();
-        });        
+        }).catch(console.log("error happenned"));;        
     }
 }
