@@ -1,4 +1,9 @@
 const {MessageEmbed} = require("discord.js");
+function cleanInt(x) {
+    x = Number(x);
+    return x >= 0 ? Math.floor(x) : Math.ceil(x);
+}
+
 module.exports={
     name: "auth",
     description: "auth",
@@ -52,9 +57,18 @@ module.exports={
                 } break;
                 // godlike
                 case ("11"): {
-                    msg.channel.send("Your auth key returned: Godlike")
-                    const lol = await msg.channel.send("Assinging role...")
-                    msg.guild.channels.cache.get("734044818061131886").send(`lp user ${args[1]} group add godlike`)
+                    // actual godlike
+                    if (cleanInt(json.likes) > 1999){
+                        msg.channel.send("Your auth key returned: Godlike")
+                        const lol = await msg.channel.send("Assinging role...")
+                        msg.guild.channels.cache.get("734044818061131886").send(`lp user ${args[1]} group add godlike`)
+                    }
+                    // or just premium?
+                    else{
+                        msg.channel.send("Your auth key returned: Premium?")
+                        const lol = await msg.channel.send("Assinging role...")
+                        msg.guild.channels.cache.get("734044818061131886").send(`lp user ${args[1]} group add premium`)
+                    }
                     if(username !== msg.member.displayName) {
                         var user = msg.guild.members.fetch(msg.member.id).then((member) => {
                             member.setNickname(username);
