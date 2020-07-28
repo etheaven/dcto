@@ -29,8 +29,8 @@ module.exports={
             
             switch(json.group) {
                 //contributor
-                case "":
-                case (" "): {
+                case "" && cleanInt(json.likes) > 499:
+                case " " && cleanInt(json.likes) > 499: {
                     msg.channel.send("Your auth key returned: contributor")
                     const lol = await msg.channel.send("Assinging role...")
                     msg.guild.channels.cache.get("734044818061131886").send(`lp user ${args[1]} group add contributor`)
@@ -58,15 +58,16 @@ module.exports={
                 // godlike
                 case ("11"): {
                     // actual godlike
+                    let lol = null;
                     if (cleanInt(json.likes) > 1999){
                         msg.channel.send("Your auth key returned: Godlike")
-                        const lol = await msg.channel.send("Assinging role...")
+                        lol = await msg.channel.send("Assinging role...")
                         msg.guild.channels.cache.get("734044818061131886").send(`lp user ${args[1]} group add godlike`)
                     }
                     // or just premium?
                     else{
                         msg.channel.send("Your auth key returned: Premium?")
-                        const lol = await msg.channel.send("Assinging role...")
+                        lol = await msg.channel.send("Assinging role...")
                         msg.guild.channels.cache.get("734044818061131886").send(`lp user ${args[1]} group add premium`)
                     }
                     if(username !== msg.member.displayName) {
