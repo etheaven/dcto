@@ -73,8 +73,7 @@ module.exports={
                     }
                     // just premium
                     else{
-                        await msg.channel.send("Your auth key returned: Premium?")
-                        let msg = await msg.channel.send("Sorry, no roles for premium :(")
+                        let noPremiumMsg = await msg.channel.send("Sorry, no roles for premium :(")
                     }           
                 } break;
                 // supreme
