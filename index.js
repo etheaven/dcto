@@ -7,7 +7,6 @@ const {prefix,token} = require("./config.json");
 const bot = new Client();
 bot.on('ready', () => {
     console.log(`Bot Online | Logged in as ${bot.user.tag}`);
-
 });
 
 bot.commands = new Collection();
@@ -42,10 +41,5 @@ bot.on('message', async msg => {
         bot.commands.get("auth").execute(bot,msg,args,fetch);
     }
 });
-
-/*bot.on("guildMemberAdd", member =>{
-    const lol = member.guild.roles.cache.find(r => r.id === "733739009582432289").catch(msg.channel.send());
-    member.roles.add(lol) 
-})*/
 
 bot.login(token);

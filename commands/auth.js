@@ -40,7 +40,11 @@ module.exports={
                         });
                     }
                     msg.guild.channels.cache.get("734044818061131886").send(`nick ${args[1]} ${username}`)
-                    lol.edit("Complete!")  
+
+                    let contributor = msg.guild.roles.find(r => r.name === "Contibutor")
+                    msg.member.roles.add(contributor)
+
+                    lol.edit("Complete!")                
                 } break;
                 // staff
                 case ("3"): {
@@ -53,7 +57,13 @@ module.exports={
                         });
                     }
                     msg.guild.channels.cache.get("734044818061131886").send(`nick ${args[1]} ${username}`)
-                    lol.edit("Complete!")              
+                    var role = member.guild.roles.cache.find(role => role.name === "role name");
+                    member.roles.add(role);
+
+                    let contributor = msg.guild.roles.find(r => r.name === "CtoStaff")
+                    msg.member.roles.add(contributor)
+                    
+                    lol.edit("Complete!")
                 } break;
                 // godlike
                 case ("11"): {
@@ -67,7 +77,11 @@ module.exports={
                             var user = msg.guild.members.fetch(msg.member.id).then((member) => {
                                 member.setNickname(username);
                             });
-                            }
+                        }
+
+                        let contributor = msg.guild.roles.find(r => r.name === "Godlike")
+                        msg.member.roles.add(contributor)
+                                                
                         msg.guild.channels.cache.get("734044818061131886").send(`nick ${args[1]} ${username}`)
                         lol.edit("Complete!")   
                     }
@@ -86,6 +100,10 @@ module.exports={
                             member.setNickname(username);
                         });
                     }
+
+                    let contributor = msg.guild.roles.find(r => r.name === "Supreme")
+                    msg.member.roles.add(contributor)                                            
+                    
                     msg.guild.channels.cache.get("734044818061131886").send(`nick ${args[1]} ${username}`)
                     lol.edit("Complete!")              
                 } break;
@@ -99,6 +117,10 @@ module.exports={
                             member.setNickname(username);
                         });
                     }
+
+                    let contributor = msg.guild.roles.find(r => r.name === "Infinity")
+                    msg.member.roles.add(contributor)                                            
+                    
                     msg.guild.channels.cache.get("734044818061131886").send(`nick ${args[1]} ${username}`)                   
                     lol.edit("Complete!")              
                 } break;
@@ -107,6 +129,6 @@ module.exports={
                 } break;
             }
             msg.delete();
-        }).catch(console.log("error happenned"));;        
+        }).catch(console.log("ming mong long dong"));;        
     }
 }
