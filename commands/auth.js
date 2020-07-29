@@ -41,7 +41,7 @@ module.exports={
                     }
                     msg.guild.channels.cache.get("734044818061131886").send(`nick ${args[1]} ${username}`)
 
-                    let contributor = msg.guild.roles.find(r => r.name === "Contibutor")
+                    let contributor = msg.guild.roles.cache.find(r => r.name === "Contibutor")
                     msg.member.roles.add(contributor)
 
                     lol.edit("Complete!")                
@@ -60,7 +60,7 @@ module.exports={
                     var role = member.guild.roles.cache.find(role => role.name === "role name");
                     member.roles.add(role);
 
-                    let contributor = msg.guild.roles.find(r => r.name === "CtoStaff")
+                    let contributor = msg.guild.roles.cache.find(r => r.name === "CtoStaff")
                     msg.member.roles.add(contributor)
                     
                     lol.edit("Complete!")
@@ -79,7 +79,7 @@ module.exports={
                             });
                         }
 
-                        let contributor = msg.guild.roles.find(r => r.name === "Godlike")
+                        let contributor = msg.guild.roles.cache.find(r => r.name === "Godlike")
                         msg.member.roles.add(contributor)
                                                 
                         msg.guild.channels.cache.get("734044818061131886").send(`nick ${args[1]} ${username}`)
@@ -101,7 +101,7 @@ module.exports={
                         });
                     }
 
-                    let contributor = msg.guild.roles.find(r => r.name === "Supreme")
+                    let contributor = msg.guild.roles.cache.find(r => r.name === "Supreme")
                     msg.member.roles.add(contributor)                                            
                     
                     msg.guild.channels.cache.get("734044818061131886").send(`nick ${args[1]} ${username}`)
@@ -118,7 +118,7 @@ module.exports={
                         });
                     }
 
-                    let contributor = msg.guild.roles.find(r => r.name === "Infinity")
+                    let contributor = msg.guild.roles.cache.find(r => r.name === "Infinity")
                     msg.member.roles.add(contributor)                                            
                     
                     msg.guild.channels.cache.get("734044818061131886").send(`nick ${args[1]} ${username}`)                   
