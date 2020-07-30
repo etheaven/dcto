@@ -31,7 +31,11 @@ module.exports={
         .then(async (json) => {
             console.log(json)
             if (json.error != undefined){
-                msg.channel.send(`Your auth key response is: ${json.error}`)
+                let responseMessage = msg.channel.send(`Your auth key response is: ${json.error}`)
+                if (json.error.includes('invalid hwid')){
+                    responseMessage.edit("Generate new auth key because currently hwid for this exact key is already taken")
+                }
+                msg.remove();
                 return;
             }
             
