@@ -35,7 +35,7 @@ module.exports={
                 if (json.error.includes('invalid hwid')){
                     responseMessage.edit("Generate new auth key because currently hwid for this exact key is already taken")
                 }
-                msg.remove();
+                msg.delete();
                 return;
             }
             
