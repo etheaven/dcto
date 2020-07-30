@@ -4,6 +4,16 @@ function cleanInt(x) {
     return x >= 0 ? Math.floor(x) : Math.ceil(x);
 }
 
+function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+ }
+ 
 module.exports={
     name: "auth",
     description: "auth",
@@ -14,7 +24,7 @@ module.exports={
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
             "Content-Type": "application/x-www-form-urlencoded"
         }
-        fetch(url, {method: "POST", headers: headers, body: `a=auth&k=${authKey}&hwid=randomHWID`})
+        fetch(url, {method: "POST", headers: headers, body: `a=auth&k=${authKey}&hwid=${makeid(8)}`})
           .then((res) => {
             return res.json()
         })
